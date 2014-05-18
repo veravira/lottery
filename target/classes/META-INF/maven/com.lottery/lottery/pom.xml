@@ -1,4 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lottery</groupId>
   <artifactId>lottery</artifactId>
@@ -14,15 +17,51 @@
 		        <enabled>false</enabled>
 		      </snapshots>
     	</repository>
+    	<repository>
+		    <id>sonatype-oss</id>
+    		<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+    		<snapshots><enabled>true</enabled></snapshots>
+  		</repository>
     </repositories>
 
     <properties>
-        <hadoop.version>0.20.2</hadoop.version>
+        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hadoop.version>0.20.2</hadoop.version>
+        
         <es.version>1.1.1</es.version>
         
     </properties>
     <dependencies>
+           <dependency>
+          <groupId>org.apache.hadoop</groupId>
+          <artifactId>hadoop-core</artifactId>
+          <version>${hadoop.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>hsqldb</groupId>
+                  <artifactId>hsqldb</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>net.sf.kosmosfs</groupId>
+                  <artifactId>kfs</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.eclipse.jdt</groupId>
+                  <artifactId>core</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>net.java.dev.jets3t</groupId>
+                  <artifactId>jets3t</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>oro</groupId>
+                  <artifactId>oro</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+    
+    
       <dependency>
           <groupId>org.apache.pig</groupId>
           <artifactId>pig</artifactId>
