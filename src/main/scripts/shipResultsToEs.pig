@@ -5,4 +5,5 @@
 REGISTER '../../../lib/elasticsearch-hadoop-pig.jar';
 define EsStorage org.elasticsearch.hadoop.pig.EsStorage('es.resource=test/seq');
 
+
 store results into 'test/seq' USING EsStorage('es.http.timeout = 5m      es.index.auto.create = false');

@@ -3,10 +3,13 @@ package com.stats.util;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CounterMap {
 	private Map<Integer, Integer> sequenceOfOutcomes = new ConcurrentHashMap<Integer, Integer>();
 	private Map<Integer, String> outcomes = new ConcurrentHashMap<Integer, String>();
-	
+	private static Logger logSeq = LoggerFactory.getLogger("outcomesSeq");
 	public enum Status {
 		WIN, LOSE
 	}
@@ -83,5 +86,31 @@ public class CounterMap {
 		}
 		
 	}
-
+	
+	/**
+	 * this method inserts delimiters to create subsequence of losses and wins
+	 */
+	private void insertDelim(String originalSequence){
+		char current = originalSequence.charAt(0);
+		StringBuffer modified = new StringBuffer(current);
+		for (int i=1; i<originalSequence.length(); ++i)
+		{
+			if (originalSequence.charAt(i)!=current)
+			{
+				modified.append("\t");
+			}
+			modified.append(originalSequence.charAt(i));
+			current = originalSequence.charAt(i);
+		}
+		originalSequence = modified.toString();
+	    logSeq.info("{}", originalSequence);
+	}
+	
+	public void storeReelsOutcome()
+	{
+		for(int i=0; i<outcomes.size(); ++i)
+		{
+			insertDelim(outcomes.get(i));
+		}
+	}
 }
