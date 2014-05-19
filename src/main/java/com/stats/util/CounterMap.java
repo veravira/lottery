@@ -90,7 +90,7 @@ public class CounterMap {
 	/**
 	 * this method inserts delimiters to create subsequence of losses and wins
 	 */
-	private void insertDelim(String originalSequence){
+	public void insertDelim(String originalSequence){
 		char current = originalSequence.charAt(0);
 		StringBuffer modified = new StringBuffer(current);
 		for (int i=1; i<originalSequence.length(); ++i)

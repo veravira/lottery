@@ -1,0 +1,17 @@
+Pig Stack Trace
+---------------
+ERROR 1066: Unable to open iterator for alias cntd
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias cntd
+	at org.apache.pig.PigServer.openIterator(PigServer.java:836)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:696)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:320)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:194)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:170)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:475)
+	at org.apache.pig.Main.main(Main.java:157)
+Caused by: java.io.IOException: Job terminated with anomalous status FAILED
+	at org.apache.pig.PigServer.openIterator(PigServer.java:828)
+	... 7 more
+================================================================================

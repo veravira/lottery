@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lottery</groupId>
   <artifactId>lottery</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Lottery Stats</name>
   <repositories>
   	<repository>
